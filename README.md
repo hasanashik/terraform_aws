@@ -129,7 +129,7 @@ content to a new manual script file.
 
 And finally got our application at VM public ip address.
 
-![](./image18.png) 
+![](./images/image18.png) 
 
 Let's now discuss the terraform scripts:
 
@@ -142,18 +142,18 @@ Machine Image (AMI) IDs, with a default value assigned for the
 \"us-east-1\" region. Lastly, the USER variable defines the default
 username for connecting to EC2 instances as \"ec2-user.\"
 
-![](./image19.png) 
+![](./images/image19.png) 
 
 **Providers.tf:** Defines an AWS provider block. We have commented out
 access and secret key because they are configured using aws configure
 command.
 
-![](./image20.png)
+![](./images/image20.png)
 
 And finally, **instance.tf**: This file creates AWS key-pair and EC2
 instance.
 
-![](./image21.png)
+![](./images/image21.png)
 
 The first resource, aws_key_pair, creates an SSH key pair named
 \"my-key\" using the public key from the file \"my-key.pub.\" The second
