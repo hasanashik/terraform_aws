@@ -114,7 +114,7 @@ In the bucket now we can see that the state is updated:
 
 ![](./images/image15.png)
 
-**Part 2: Run a website inside AWS EC2 VM using terraform**
+# Part 2: Run a website inside AWS EC2 VM using terraform
 
 Our part 1 terraform scripts already pushed the required bash script to
 run web application inside the VM. Now we should have our web
