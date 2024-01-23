@@ -8,7 +8,7 @@ resource "aws_instance" "zaman-inst" {
   instance_type          = "t2.micro"
   availability_zone      = var.ZONE1
   key_name               = aws_key_pair.my-key.key_name
-  vpc_security_group_ids = ["sg-0d8b30b5a99c4418e"]
+  vpc_security_group_ids = ["sg-0b9fa8c3c77db9678"]
   tags = {
     Name    = "zaman-Instance"
     Project = "zaman"
