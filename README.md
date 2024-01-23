@@ -41,7 +41,7 @@ resources in AWS. To do so we need to run: ssh-keygen
 
 This will create public and private key files.
 
-**[Part 1 Steps:]{.underline}**
+**Part 1 Steps:**
 
 1.  **Create S3 bucket and directory in bucket**
 
