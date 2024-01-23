@@ -9,7 +9,7 @@ variable "ZONE1" {
 variable "AMIS" {
   type = map(any)
   default = {
-    us-east-1 = "ami-0005e0cfe09cc9050"
+    us-east-1 = "ami-0a3c3a20c09d6f377"
   }
 }
 
