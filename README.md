@@ -55,29 +55,75 @@ Go to: Amazon S3 \> Buckets \> Create bucket
 
 Give a bucket name and click create bucket.
 
-![](./images/image1.png){width="5.6732884951881015in"
-height="4.687738407699038in"}
+![](./images/image1.png)
 
 Create Security group by adding inbound rules. For test purpose we are
 allowing all HTTP, TCP connections for IPv4 and IPv6:
 
-![](./images/image2.png){width="6.5in" height="2.863888888888889in"}
+![](./images/image2.png)
 
 Copy security gruoup ID to instance.tf file.
 
-![](./images/image3.png){width="6.5in" height="2.0701388888888888in"}
+![](./images/image3.png)
 
 Update AMI in var.tf as per your zone available AMI. Here we are using
 Amazon Machine Image (AMI)
 
-![](./images/image4.png){width="6.5in" height="2.23125in"}
+![](./images/image4.png)
 
-![](./images/image5.png){width="6.5in" height="2.3756944444444446in"}
+![](./images/image5.png)
 
 Now create a S3 bucket:
 
-![](./images/image6.png){width="6.564187445319335in"
-height="2.9195231846019247in"}
+![](./images/image6.png)
 
-![](./images/image7.png){width="6.607645450568679in"
-height="2.9840299650043747in"}
+![](./images/image7.png)
+
+Create a repository inside bucket:
+
+![](./images/image8.png)
+
+Update backend.tf values.
+
+![](./images/image9.png)
+
+Update providers.tf file as per your access key or you can do *[aws
+configure]{.underline}* in cli.
+
+![](./images/image10.png)
+
+![](./images/image11.png)
+
+Now let us initialize terraform to create state file in the folder of S3
+bucket.
+
+Run *[terraform init]{.underline}* or *[terraform init
+-reconfigure]{.underline}*
+
+![](./images/image12.png)
+
+Do terraform validate, fmt and plan
+
+![](./images/image13.png)
+
+And finaly terraform apply.
+
+![](./images/image14.png)
+
+In the bucket now we can see that the state is updated:
+
+![](./images/image15.png)
+
+**Part 2: Run a website inside AWS EC2 VM using terraform**
+
+Our part 1 terraform scripts already pushed the required bash script to
+run web application inside the VM. Now we should have our web
+application running at public ip of VM.
+
+In our case we needed to manually run the web.sh file after copying its
+content to a new manual script file.
+
+![](./images/image16.png)
+
+![](./images/image17.png)
+
