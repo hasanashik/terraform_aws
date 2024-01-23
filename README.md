@@ -127,3 +127,43 @@ content to a new manual script file.
 
 ![](./images/image17.png)
 
+And finally got our application at VM public ip address.
+
+![](./image18.png) 
+
+Let's now discuss the terraform scripts:
+
+**Vars.tf**: It defines variables that can be used provide a flexible
+way to manage configuration parameters for infrastructure resources and
+can be referenced. The REGION variable specifies the default AWS region
+as \"us-east-1.\" The ZONE1 variable sets the default availability zone
+to \"us-east-1a.\" The AMIS variable, of type map(any), holds Amazon
+Machine Image (AMI) IDs, with a default value assigned for the
+\"us-east-1\" region. Lastly, the USER variable defines the default
+username for connecting to EC2 instances as \"ec2-user.\"
+
+![](./image19.png) 
+
+**Providers.tf:** Defines an AWS provider block. We have commented out
+access and secret key because they are configured using aws configure
+command.
+
+![](./image20.png)
+
+And finally, **instance.tf**: This file creates AWS key-pair and EC2
+instance.
+
+![](./image21.png)
+
+The first resource, aws_key_pair, creates an SSH key pair named
+\"my-key\" using the public key from the file \"my-key.pub.\" The second
+resource, aws_instance, launches an EC2 instance named \"zaman-inst\" in
+the specified AWS region. It uses the AMI ID from the AMIS variable
+based on the chosen region, with instance type \"t2.micro\" and
+availability zone from the ZONE1 variable. The instance is associated
+with a security group and tagged with a name and project. Additionally,
+the script provisions the instance by copying a local script
+(\"web.sh\") to \"/tmp/web.sh\" on the remote instance and then executes
+it using remote-exec provisioners. The connection block specifies the
+SSH user, private key file, and host information for connecting to the
+instance.
